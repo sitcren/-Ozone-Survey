@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ozone Survey | Environmental & Geological Studies</title>
+
+    <link rel="icon" href="https://ozonesurvey.com/wp-content/uploads/2025/03/ozone_logo.png">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --blue:#064d75;
+            --blue-dark:#03354f;
+            --blue-light:#0b739f;
+            --green:#16845a;
+            --yellow:#f3bd20;
+            --red:#c71924;
+            --light:#f4f8fa;
+            --text:#263842;
+        }
+
+        * { scroll-behavior:smooth; }
+
+        body {
+            font-family:'Inter',sans-serif;
+            color:var(--text);
+            margin:0;
+        }
+
+        section { scroll-margin-top:80px; }
+
+        .site-header {
+            background:#fff;
+            position:sticky;
+            top:0;
+            z-index:1000;
+            box-shadow:0 2px 15px rgba(0,0,0,.06);
+        }
+
+        .navbar { min-height:78px; }
+
+        .navbar-brand img { width:145px; }
+
+        .nav-link {
+            color:#243944 !important;
+            font-size:14px;
+            font-weight:600;
+            margin:0 7px;
+        }
+
+        .nav-link:hover,
+        .nav-link.active { color:var(--blue) !important; }
+
+        .btn-primary {
+            background:var(--blue);
+            border-color:var(--blue);
+            border-radius:5px;
+        }
+
+        .btn-primary:hover { background:var(--blue-dark); }
+
+        /* HERO */
+        .hero,
+        .hero .carousel,
+        .hero .carousel-inner,
+        .hero .carousel-item {
+            height:650px;
+        }
+
+        .hero .carousel-item {
+            background-size:cover;
+            background-position:center;
+            position:relative;
+        }
+
+        .hero-overlay {
+            position:absolute;
+            inset:0;
+            background:linear-gradient(90deg,rgba(2,35,54,.90),rgba(3,53,79,.58),rgba(3,53,79,.15));
+        }
+
+        .hero-content {
+            position:relative;
+            z-index:2;
+            height:100%;
+            display:flex;
+            justify-content:center;
+            flex-direction:column;
+            color:#fff;
+            max-width:1140px;
+        }
+
+        .hero-label,
+        .section-label {
+            color:var(--blue);
+            font-size:12px;
+            font-weight:800;
+            letter-spacing:2px;
+            margin-bottom:14px;
+            display:inline-block;
+        }
+
+        .hero-label { color:#8fd3ec; }
+
+        .hero h1 {
+            font-size:clamp(42px,6vw,76px);
+            line-height:1.02;
+            font-weight:800;
+            max-width:850px;
+            margin-bottom:25px;
+        }
+
+        .hero h1 span,
+        h2 span { color:var(--blue-light); }
+
+        .hero h1 span { color:#8ed2e9; }
+
+        .hero p {
+            font-size:18px;
+            max-width:600px;
+            line-height:1.7;
+            margin-bottom:30px;
+        }
+
+        .hero .btn {
+            width:fit-content;
+            border-radius:4px;
+            font-size:14px;
+            padding:13px 22px;
+        }
+
+        /* GENERAL */
+        .intro-section { padding:100px 0; background:#fff; }
+
+        .intro-section h2,
+        .about-section h2,
+        .section-heading h2,
+        .contact-section h2 {
+            font-size:clamp(32px,4vw,50px);
+            line-height:1.15;
+            font-weight:800;
+            color:var(--blue-dark);
+        }
+
+        .intro-section .lead {
+            font-size:18px;
+            line-height:1.8;
+            color:#5a6b73;
+        }
+
+        .about-section {
+            padding:100px 0;
+            background:var(--light);
+        }
+
+        .about-section p {
+            color:#5c6c74;
+            line-height:1.8;
+        }
+
+        .about-card {
+            background:var(--blue);
+            color:#fff;
+            padding:55px;
+            min-height:360px;
+        }
+
+        .about-icon {
+            font-size:45px;
+            margin-bottom:30px;
+        }
+
+        .about-card h3 {
+            font-size:30px;
+            font-weight:700;
+        }
+
+        .about-card p { color:#d7ebf3; }
+
+        .about-line {
+            height:2px;
+            width:60px;
+            background:var(--yellow);
+            margin:30px 0 15px;
+        }
+
+        .mv-section,
+        .expertise-section,
+        .services-section,
+        .contact-section {
+            padding:100px 0;
+        }
+
+        .section-heading { max-width:750px; }
+        .section-heading.text-center { margin:auto; }
+
+        /* MISSION / VISION / VALUES */
+        .info-card {
+            height:100%;
+            background:#fff;
+            border:1px solid #e5ecef;
+            padding:40px;
+            position:relative;
+            transition:.3s;
+        }
+
+        .info-card:hover {
+            transform:translateY(-6px);
+            box-shadow:0 15px 40px rgba(3,53,79,.08);
+        }
+
+        .info-card.featured {
+            background:var(--blue);
+            color:#fff;
+        }
+
+        .info-card.featured h3,
+        .info-card.featured p { color:#fff; }
+
+        .card-number {
+            position:absolute;
+            right:25px;
+            top:20px;
+            font-size:12px;
+            font-weight:700;
+            opacity:.5;
+        }
+
+        .info-card > i {
+            font-size:35px;
+            color:var(--blue);
+            margin-bottom:25px;
+            display:block;
+        }
+
+        .info-card.featured > i { color:var(--yellow); }
+
+        .info-card h3 {
+            font-size:24px;
+            font-weight:700;
+            color:var(--blue-dark);
+        }
+
+        .info-card p {
+            color:#65747b;
+            line-height:1.7;
+        }
+
+        .values {
+            display:flex;
+            flex-wrap:wrap;
+            gap:8px;
+        }
+
+        .values span,
+        .service-tags span {
+            padding:8px 12px;
+            background:#edf5f8;
+            color:var(--blue);
+            font-size:12px;
+            font-weight:600;
+        }
+
+        /* EXPERTISE */
+        .expertise-section { background:var(--light); }
+
+        .expertise-grid {
+            box-shadow:0 20px 50px rgba(3,53,79,.10);
+        }
+
+        .expertise-card {
+            height:420px;
+            position:relative;
+            overflow:hidden;
+        }
+
+        .expertise-card img {
+            width:100%;
+            height:100%;
+            object-fit:cover;
+            transition:.6s;
+        }
+
+        .expertise-card:hover img { transform:scale(1.06); }
+
+        .expertise-card:after {
+            content:"";
+            position:absolute;
+            inset:0;
+            background:linear-gradient(transparent 35%,rgba(2,30,45,.85));
+        }
+
+        .expertise-overlay {
+            position:absolute;
+            bottom:30px;
+            left:30px;
+            z-index:2;
+            color:#fff;
+        }
+
+        .expertise-overlay span {
+            color:var(--yellow);
+            font-size:12px;
+            font-weight:700;
+        }
+
+        .expertise-overlay h3 {
+            margin-top:8px;
+            font-size:22px;
+            font-weight:700;
+        }
+
+        /* CONTRIBUTIONS */
+        .contributions-section {
+            padding:100px 0;
+            background:var(--blue-dark);
+            color:#fff;
+        }
+
+        .contributions-section h2 { color:#fff; }
+        .contributions-section h2 span { color:#7ecde8; }
+        .contributions-section .section-label { color:#7ecde8; }
+
+        .contribution-slide {
+            display:none;
+            animation:fadeSlide .5s ease;
+        }
+
+        .contribution-slide.active { display:block; }
+
+        .contribution-slide img {
+            width:100%;
+            height:470px;
+            object-fit:cover;
+        }
+
+        .contribution-slide h3 {
+            font-size:clamp(28px,4vw,45px);
+            line-height:1.15;
+            margin:15px 0 20px;
+            font-weight:700;
+        }
+
+        .contribution-slide p {
+            color:#c5d9e1;
+            line-height:1.8;
+        }
+
+        .contribution-number {
+            color:var(--yellow);
+            font-size:12px;
+            font-weight:700;
+            letter-spacing:2px;
+        }
+
+        .slider-controls {
+            display:flex;
+            gap:8px;
+            justify-content:flex-end;
+        }
+
+        .slider-controls button {
+            width:45px;
+            height:45px;
+            background:transparent;
+            border:1px solid rgba(255,255,255,.3);
+            color:#fff;
+            transition:.3s;
+        }
+
+        .slider-controls button:hover {
+            background:#fff;
+            color:var(--blue);
+        }
+
+        /* SERVICES */
+        .services-section { background:#fff; }
+
+        .service-item {
+            display:grid;
+            grid-template-columns:80px 1fr 40px;
+            gap:30px;
+            padding:40px 0;
+            border-top:1px solid #dfe8eb;
+            align-items:start;
+        }
+
+        .service-item:last-child { border-bottom:1px solid #dfe8eb; }
+
+        .service-number {
+            font-size:13px;
+            font-weight:800;
+            color:var(--blue);
+        }
+
+        .service-content h3 {
+            font-size:27px;
+            font-weight:700;
+            color:var(--blue-dark);
+        }
+
+        .service-content p {
+            max-width:800px;
+            color:#68777e;
+            line-height:1.7;
+        }
+
+        .service-item > i {
+            color:var(--blue);
+            font-size:22px;
+        }
+
+        .service-tags {
+            display:flex;
+            flex-wrap:wrap;
+            gap:7px;
+        }
+
+        /* CTA */
+        .cta-section { padding:40px 0 100px; }
+
+        .cta-box {
+            background:var(--blue);
+            padding:60px;
+            color:#fff;
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap:30px;
+        }
+
+        .cta-box .section-label { color:#8ed2e9; }
+
+        .cta-box h2 {
+            color:#fff;
+            font-size:clamp(30px,4vw,48px);
+            font-weight:800;
+        }
+
+        .cta-box h2 span { color:#8ed2e9; }
+
+        .cta-box p { color:#d4e7ee; }
+        .cta-box .btn { white-space:nowrap; }
+
+        /* CONTACT */
+        .contact-section { background:var(--light); }
+
+        .contact-section > .container > .row { align-items:center; }
+
+        .contact-section p {
+            color:#65747b;
+            line-height:1.8;
+        }
+
+        .contact-list {
+            background:#fff;
+            padding:15px 35px;
+        }
+
+        .contact-item {
+            display:flex;
+            gap:20px;
+            padding:25px 0;
+            border-bottom:1px solid #e6edef;
+        }
+
+        .contact-item:last-child { border:0; }
+
+        .contact-icon {
+            width:45px;
+            height:45px;
+            background:#edf5f8;
+            color:var(--blue);
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            flex-shrink:0;
+        }
+
+        .contact-item small {
+            color:var(--blue);
+            font-weight:700;
+            font-size:11px;
+            text-transform:uppercase;
+            letter-spacing:1px;
+        }
+
+        .contact-item p { margin:5px 0 0; }
+
+        .contact-item a {
+            color:var(--text);
+            text-decoration:none;
+        }
+
+        /* FOOTER */
+        .footer {
+            background:#022c42;
+            color:#b9cdd5;
+            padding:70px 0 25px;
+        }
+
+        .footer-logo {
+            width:145px;
+            /* filter:brightness(0) invert(1); */
+            margin-bottom:20px;
+        }
+
+        .footer p {
+            max-width:400px;
+            line-height:1.7;
+        }
+
+        .footer h5 {
+            color:#fff;
+            margin-bottom:20px;
+        }
+
+        .footer-links {
+            display:flex;
+            flex-wrap:wrap;
+            gap:12px 25px;
+        }
+
+        .footer-links a {
+            color:#b9cdd5;
+            text-decoration:none;
+            font-size:14px;
+        }
+
+        .footer-links a:hover { color:#fff; }
+
+        .social-links {
+            display:flex;
+            gap:10px;
+        }
+
+        .social-links a {
+            width:38px;
+            height:38px;
+            border:1px solid rgba(255,255,255,.2);
+            color:#fff;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            text-decoration:none;
+        }
+
+        .social-links a:hover { background:var(--blue-light); }
+
+        .footer hr {
+            border-color:rgba(255,255,255,.12);
+            margin:50px 0 20px;
+        }
+
+        .footer-bottom {
+            display:flex;
+            justify-content:space-between;
+            font-size:12px;
+        }
+
+        .footer-bottom a { color:#b9cdd5; }
+
+        .whatsapp-float {
+            position:fixed;
+            right:22px;
+            bottom:22px;
+            width:55px;
+            height:55px;
+            background:#25d366;
+            color:#fff;
+            border-radius:50%;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:26px;
+            z-index:999;
+            text-decoration:none;
+            box-shadow:0 5px 20px rgba(0,0,0,.2);
+        }
+
+        @keyframes fadeSlide {
+            from { opacity:0; transform:translateX(20px); }
+            to { opacity:1; transform:translateX(0); }
+        }
+
+        @media (max-width:991px) {
+            .navbar-collapse {
+                background:#fff;
+                padding:15px 0 20px;
+            }
+
+            .nav-link { padding:10px 0 !important; }
+
+            .hero,
+            .hero .carousel,
+            .hero .carousel-inner,
+            .hero .carousel-item {
+                height:580px;
+            }
+
+            .hero-content { padding:30px; }
+
+            .intro-section,
+            .about-section,
+            .mv-section,
+            .expertise-section,
+            .services-section,
+            .contributions-section,
+            .contact-section {
+                padding:75px 0;
+            }
+
+            .cta-box {
+                padding:40px;
+                flex-direction:column;
+                align-items:flex-start;
+            }
+
+            .contribution-slide img { height:380px; }
+        }
+
+        @media (max-width:767px) {
+            .navbar { min-height:70px; }
+            .navbar-brand img { width:125px; }
+
+            .hero,
+            .hero .carousel,
+            .hero .carousel-inner,
+            .hero .carousel-item {
+                height:520px;
+            }
+
+            .hero h1 { font-size:42px; }
+            .hero p { font-size:15px; }
+
+            .expertise-card { height:300px; }
+            .contribution-slide img { height:270px; }
+
+            .service-item {
+                grid-template-columns:45px 1fr;
+                gap:15px;
+            }
+
+            .service-item > i { display:none; }
+            .service-content h3 { font-size:22px; }
+
+            .cta-box { padding:30px; }
+
+            .footer-bottom {
+                flex-direction:column;
+                gap:10px;
+            }
+
+            .slider-controls {
+                justify-content:flex-start;
+                margin-top:20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="site-header">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <img src="https://ozonesurvey.com/wp-content/uploads/2025/03/ozone_logo.png" alt="Ozone Survey">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#expertise">Expertise</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">What We Do</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contributions">Contributions</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <a href="https://api.whatsapp.com/send?phone=258845521262" target="_blank" class="btn btn-primary px-4">
+                            <i class="bi bi-whatsapp"></i> Talk to us
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<section id="home" class="hero">
+    <div id="heroSlider" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="6500">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#heroSlider" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#heroSlider" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#heroSlider" data-bs-slide-to="2"></button>
+        </div>
+
+        <div class="carousel-inner">
+            <div class="carousel-item active" style="background-image:url('https://ozonesurvey.com/wp-content/uploads/2025/03/pexels-photo-566496.jpeg');">
+                <div class="hero-overlay"></div>
+                <div class="container hero-content">
+                    <span class="hero-label">OZONE SURVEY</span>
+                    <h1>Building a more<br><span>sustainable future.</span></h1>
+                    <p>Environmental, geological and socio-economic solutions for responsible development.</p>
+                    <a href="#services" class="btn btn-light btn-lg">Explore our services <i class="bi bi-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="carousel-item" style="background-image:url('https://ozonesurvey.com/wp-content/uploads/2025/03/pexels-photo-66346.jpeg');">
+                <div class="hero-overlay"></div>
+                <div class="container hero-content">
+                    <span class="hero-label">WATER RESOURCES</span>
+                    <h1>Understanding<br><span>our natural resources.</span></h1>
+                    <p>Research, monitoring and sustainable management of water resources.</p>
+                    <a href="#expertise" class="btn btn-light btn-lg">Our expertise <i class="bi bi-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="carousel-item" style="background-image:url('https://ozonesurvey.com/wp-content/uploads/2025/09/060-063_geologia_308-0-1140.jpg');">
+                <div class="hero-overlay"></div>
+                <div class="container hero-content">
+                    <span class="hero-label">GEOLOGY & MINING</span>
+                    <h1>Science behind<br><span>responsible development.</span></h1>
+                    <p>Geological and geophysical studies supporting sustainable projects.</p>
+                    <a href="#contact" class="btn btn-light btn-lg">Get in touch <i class="bi bi-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroSlider" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroSlider" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+</section>
+
+<section class="intro-section">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+                <span class="section-label">OUR PURPOSE</span>
+                <h2>Advancing sustainability through <span>knowledge and action.</span></h2>
+            </div>
+            <div class="col-lg-6">
+                <p class="lead">Ozone Survey is committed to promoting environmental and socio-economic sustainability by empowering stakeholders to implement good practices in the management and operation of projects.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="about" class="about-section">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+                <span class="section-label">CEO MESSAGE</span>
+                <h2>Creating impact that <span>lasts.</span></h2>
+                <p>A results-driven leader committed to advancing environmental and socio-economic sustainability by empowering stakeholders across diverse sectors.</p>
+                <p>We specialise in guiding the implementation of best practices in project management and operations, ensuring long-term success, resilience and impact.</p>
+                <p>Our approach aligns strategic goals with sustainable development principles to foster inclusive growth and responsible innovation.</p>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="about-card">
+                    <div class="about-icon"><i class="bi bi-globe-americas"></i></div>
+                    <h3>Sustainability at the core</h3>
+                    <p>Environmental responsibility, scientific knowledge and socio-economic development guide everything we do.</p>
+                    <div class="about-line"></div>
+                    <strong>OZONE SURVEY</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="mv-section">
+    <div class="container">
+        <div class="section-heading text-center">
+            <span class="section-label">WHO WE ARE</span>
+            <h2>Our mission, vision & <span>values.</span></h2>
+        </div>
+
+        <div class="row g-4 mt-4">
+            <div class="col-lg-4">
+                <div class="info-card">
+                    <div class="card-number">01</div>
+                    <i class="bi bi-bullseye"></i>
+                    <h3>Mission</h3>
+                    <p>Promoting environmental and socio-economic sustainability by empowering stakeholders in the implementation of good practices in the management and operation of projects.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="info-card featured">
+                    <div class="card-number">02</div>
+                    <i class="bi bi-eye"></i>
+                    <h3>Vision</h3>
+                    <p>To become a national and international reference organisation in environmental, occupational health and safety and geological studies.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="info-card">
+                    <div class="card-number">03</div>
+                    <i class="bi bi-stars"></i>
+                    <h3>Values</h3>
+                    <div class="values">
+                        <span>Organisation</span>
+                        <span>Zeal</span>
+                        <span>Oughtiness</span>
+                        <span>Naturalist</span>
+                        <span>Excellence</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="expertise" class="expertise-section">
+    <div class="container">
+        <div class="section-heading text-center">
+            <span class="section-label">SUBJECT MATTER EXPERTISE</span>
+            <h2>Areas where we create <span>impact.</span></h2>
+        </div>
+
+        <div class="row g-0 expertise-grid mt-5">
+            <div class="col-md-6 col-lg-3">
+                <div class="expertise-card">
+                    <img src="https://ozonesurvey.com/wp-content/uploads/2025/03/pexels-photo-566496.jpeg" alt="Environment">
+                    <div class="expertise-overlay"><span>01</span><h3>Environment</h3></div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="expertise-card">
+                    <img src="https://ozonesurvey.com/wp-content/uploads/2025/03/pexels-photo-66346.jpeg" alt="Water Resources">
+                    <div class="expertise-overlay"><span>02</span><h3>Water Resources</h3></div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="expertise-card">
+                    <img src="https://ozonesurvey.com/wp-content/uploads/2025/09/060-063_geologia_308-0-1140.jpg" alt="Geology and Mining">
+                    <div class="expertise-overlay"><span>03</span><h3>Geology & Mining</h3></div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="expertise-card">
+                    <img src="https://ozonesurvey.com/wp-content/uploads/2025/03/biologist-forest.jpg" alt="Socio Economic Studies">
+                    <div class="expertise-overlay"><span>04</span><h3>Socio-Economic Studies</h3></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contributions" class="contributions-section">
+    <div class="container">
+        <div class="row align-items-end mb-5">
+            <div class="col-lg-8">
+                <span class="section-label">OUR TRACK RECORD</span>
+                <h2>Take stock of our <span>contributions.</span></h2>
+            </div>
+
+            <div class="col-lg-4 text-lg-end">
+                <div class="slider-controls">
+                    <button onclick="previousContribution()"><i class="bi bi-arrow-left"></i></button>
+                    <button onclick="nextContribution()"><i class="bi bi-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="contribution-slider">
+
+            <div class="contribution-slide active">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-7">
+                        <img src="https://ozonesurvey.com/wp-content/uploads/2025/03/pexels-photo-566496.jpeg" alt="Clean energy">
+                    </div>
+                    <div class="col-lg-5">
+                        <span class="contribution-number">01 / 08</span>
+                        <h3>Fostering clean energies in Mozambique</h3>
+                        <p>Responsible for studies and initiatives aimed at fostering the development and adoption of clean energy solutions in Mozambique.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contribution-slide">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-7">
+                        <img src="https://ozonesurvey.com/wp-content/uploads/2025/09/060-063_geologia_308-0-1140.jpg" alt="Geological studies">
+                    </div>
+                    <div class="col-lg-5">
+                        <span class="contribution-number">02 / 08</span>
+                        <h3>Zambezia stones discovery</h3>
+                        <p>Played a significant role in geological research contributing to the discovery of stone resources in Zambezia.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contribution-slide">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-7">
+                        <img src="https://ozonesurvey.com/wp-content/uploads/2025/03/biologist-forest.jpg" alt="Community development">
+                    </div>
+                    <div class="col-lg-5">
+                        <span class="contribution-number">03 / 08</span>
+                        <h3>Community development in Quissanga</h3>
+                        <p>Supported the community of Quissanga in producing and planting cashew trees, contributing to sustainable livelihoods.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contribution-slide">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-7">
+                        <img src="https://ozonesurvey.com/wp-content/uploads/2025/03/pexels-photo-66346.jpeg" alt="Water resources">
+                    </div>
+                    <div class="col-lg-5">
+                        <span class="contribution-number">04 / 08</span>
+                        <h3>40 wells opened at Matutuine</h3>
+                        <p>Contributed to improving access to water resources through the opening of 40 wells in Matutuine.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contribution-slide">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-7">
+                        <img src="https://ozonesurvey.com/wp-content/uploads/2025/03/pexels-photo-566496.jpeg" alt="Ecological studies">
+                    </div>
+                    <div class="col-lg-5">
+                        <span class="contribution-number">05 / 08</span>
+                        <h3>Ecological exercise in Manica</h3>
+                        <p>Conducted ecological assessments supporting better understanding and management of environmental conditions in Manica.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contribution-slide">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-7">
+                        <img src="https://ozonesurvey.com/wp-content/uploads/2025/03/pexels-photo-566496.jpeg" alt="Clean energy programme">
+                    </div>
+                    <div class="col-lg-5">
+                        <span class="contribution-number">06 / 08</span>
+                        <h3>Clean energy programme at Mocuba</h3>
+                        <p>Participated in initiatives promoting clean energy and sustainable development in Mocuba.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contribution-slide">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-7">
+                        <img src="https://ozonesurvey.com/wp-content/uploads/2025/03/biologist-forest.jpg" alt="Deforestation">
+                    </div>
+                    <div class="col-lg-5">
+                        <span class="contribution-number">07 / 08</span>
+                        <h3>Mitigating deforestation at Dondo</h3>
+                        <p>Supported initiatives focused on reducing deforestation and strengthening environmental protection in Dondo.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contribution-slide">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-7">
+                        <img src="https://ozonesurvey.com/wp-content/uploads/2025/09/060-063_geologia_308-0-1140.jpg" alt="Resource assessment">
+                    </div>
+                    <div class="col-lg-5">
+                        <span class="contribution-number">08 / 08</span>
+                        <h3>Various resource assessments</h3>
+                        <p>Conducted resource assessments supporting informed decision-making across different sectors and projects.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section id="services" class="services-section">
+    <div class="container">
+        <div class="section-heading">
+            <span class="section-label">WHAT WE DO</span>
+            <h2>Expertise that turns <span>knowledge into action.</span></h2>
+        </div>
+
+        <div class="services-list mt-5">
+
+            <div class="service-item">
+                <div class="service-number">01</div>
+                <div class="service-content">
+                    <h3>Environmental Impact Studies</h3>
+                    <p>Environmental Impact Assessment of different types of projects regardless of the implementation environment, respecting all national and international guidelines.</p>
+                    <div class="service-tags">
+                        <span>Ecology</span>
+                        <span>Air & Noise Quality</span>
+                        <span>Water Quality</span>
+                        <span>Geology</span>
+                        <span>Hydrology</span>
+                        <span>Environmental Management Plans</span>
+                        <span>Environmental Audits</span>
+                    </div>
+                </div>
+                <i class="bi bi-arrow-up-right"></i>
+            </div>
+
+            <div class="service-item">
+                <div class="service-number">02</div>
+                <div class="service-content">
+                    <h3>Environmental Quality Monitoring</h3>
+                    <p>Environmental quality monitoring services for mining projects, construction projects, factories and other types of projects.</p>
+                    <div class="service-tags">
+                        <span>Air Quality</span>
+                        <span>Noise</span>
+                        <span>Environmental Monitoring</span>
+                    </div>
+                </div>
+                <i class="bi bi-arrow-up-right"></i>
+            </div>
+
+            <div class="service-item">
+                <div class="service-number">03</div>
+                <div class="service-content">
+                    <h3>Geological & Geophysical Studies</h3>
+                    <p>Geological and geophysical services supporting exploration, mining, groundwater research and resource assessment.</p>
+                    <div class="service-tags">
+                        <span>Mining Licensing</span>
+                        <span>Geological Mapping</span>
+                        <span>Sampling</span>
+                        <span>Activity Reports</span>
+                        <span>Mining Plans</span>
+                        <span>Soil Sampling</span>
+                        <span>Geophysical Studies</span>
+                    </div>
+                </div>
+                <i class="bi bi-arrow-up-right"></i>
+            </div>
+
+            <div class="service-item">
+                <div class="service-number">04</div>
+                <div class="service-content">
+                    <h3>Socio-Economic Studies</h3>
+                    <p>Research and analysis supporting inclusive development and a better understanding of communities and their socio-economic context.</p>
+                    <div class="service-tags">
+                        <span>Socio-Economic Impact</span>
+                        <span>Willingness to Pay</span>
+                        <span>Community Profiles</span>
+                        <span>Social Surveys</span>
+                    </div>
+                </div>
+                <i class="bi bi-arrow-up-right"></i>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-box">
+            <div>
+                <span class="section-label">LET'S WORK TOGETHER</span>
+                <h2>Have a project that needs <span>expertise?</span></h2>
+                <p>Talk to our team about your environmental, geological or socio-economic project.</p>
+            </div>
+
+            <a href="https://api.whatsapp.com/send?phone=258845521262" target="_blank" class="btn btn-light btn-lg">
+                <i class="bi bi-whatsapp"></i> Contact us
+            </a>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="contact-section">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-6">
+                <span class="section-label">CONTACT</span>
+                <h2>Let's create a <span>better future.</span></h2>
+                <p>Get in touch with Ozone Survey and let's discuss how our expertise can support your next project.</p>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="contact-list">
+
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="bi bi-geo-alt"></i></div>
+                        <div>
+                            <small>Office</small>
+                            <p>EN1 Street, Maputo Province<br>Mozambique</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="bi bi-telephone"></i></div>
+                        <div>
+                            <small>Phone</small>
+                            <p><a href="tel:+258845521262">+258 84 552 1262</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="bi bi-envelope"></i></div>
+                        <div>
+                            <small>Email</small>
+                            <p><a href="mailto:saidemulima@ozonesurvey.co.mz">saidemulima@ozonesurvey.co.mz</a></p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row g-4 align-items-center">
+
+            <div class="col-lg-5">
+                <img src="https://ozonesurvey.com/wp-content/uploads/2025/03/ozone_logo.png" alt="Ozone Survey" class="footer-logo">
+                <p>Environmental, geological and socio-economic solutions for sustainable development.</p>
+            </div>
+
+            <div class="col-lg-4">
+                <h5>Navigation</h5>
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#expertise">Expertise</a>
+                    <a href="#services">Services</a>
+                    <a href="#contributions">Contributions</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+
+            <div class="col-lg-3">
+                <h5>Follow us</h5>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                    <a href="#" aria-label="Telegram"><i class="bi bi-telegram"></i></a>
+                </div>
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="footer-bottom">
+            <span>© 2026 Ozone Survey. All rights reserved.</span>
+            <a href="#">Privacy Policy</a>
+        </div>
+    </div>
+</footer>
+
+<a href="https://api.whatsapp.com/send?phone=258845521262" target="_blank" class="whatsapp-float">
+    <i class="bi bi-whatsapp"></i>
+</a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    let currentContribution = 0;
+    const contributionSlides = document.querySelectorAll(".contribution-slide");
+
+    function showContribution(index) {
+        if (index >= contributionSlides.length) currentContribution = 0;
+        if (index < 0) currentContribution = contributionSlides.length - 1;
+
+        contributionSlides.forEach(slide => slide.classList.remove("active"));
+        contributionSlides[currentContribution].classList.add("active");
+    }
+
+    function nextContribution() {
+        currentContribution++;
+        showContribution(currentContribution);
+    }
+
+    function previousContribution() {
+        currentContribution--;
+        showContribution(currentContribution);
+    }
+
+    setInterval(nextContribution, 7000);
+
+    document.querySelectorAll(".navbar-nav .nav-link").forEach(link => {
+        link.addEventListener("click", () => {
+            const menu = document.querySelector(".navbar-collapse");
+            if (menu.classList.contains("show")) {
+                document.querySelector(".navbar-toggler").click();
+            }
+        });
+    });
+
+    const sections = document.querySelectorAll("section[id]");
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    window.addEventListener("scroll", () => {
+        let current = "";
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 120;
+            if (window.scrollY >= sectionTop) {
+                current = section.getAttribute("id");
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove("active");
+            if (link.getAttribute("href") === "#" + current) {
+                link.classList.add("active");
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
